@@ -1,10 +1,10 @@
-import { GetStaticProps } from "next";
-import Link from "next/link";
+import { GetStaticProps } from 'next';
+import Link from 'next/link';
 
-import { SampleDate } from "../../interfaces";
-import { sampleDateData } from "../../utils/sample-date-data";
-import Layout from "../../components/Layout";
-import DateList from "../../components/date/DateList";
+import { SampleDate } from '../../interfaces';
+import { sampleDateData } from '../../utils/sample-date-data';
+import Layout from '../../components/Layout';
+import DateList from '../../components/date/DateList';
 
 type Props = {
   items: SampleDate[];

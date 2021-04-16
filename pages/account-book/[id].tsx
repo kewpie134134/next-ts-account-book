@@ -1,9 +1,9 @@
-import { GetStaticProps, GetStaticPaths } from "next";
+import { GetStaticProps, GetStaticPaths } from 'next';
 
-import { SampleDate } from "../../interfaces";
-import Layout from "../../components/Layout";
-import DateListDetail from "../../components/date/DateListDetail";
-import { sampleDateData } from "../../utils/sample-date-data";
+import { SampleDate } from '../../interfaces';
+import Layout from '../../components/Layout';
+import DateListDetail from '../../components/date/DateListDetail';
+import { sampleDateData } from '../../utils/sample-date-data';
 
 type Props = {
   item?: SampleDate;
@@ -15,7 +15,7 @@ const StaticPropsDetail = ({ item, errors }: Props) => {
     return (
       <Layout title="Error | Next.js + TypeScript Example">
         <p>
-          <span style={{ color: "red" }}>Error:</span> {errors}
+          <span style={{ color: 'red' }}>Error:</span> {errors}
         </p>
       </Layout>
     );
@@ -24,7 +24,7 @@ const StaticPropsDetail = ({ item, errors }: Props) => {
   return (
     <Layout
       title={`${
-        item ? item.date : "Account book Detail"
+        item ? item.date : 'Account book Detail'
       } | Next.js + TypeScript Example`}
     >
       {item && <DateListDetail item={item} />}
@@ -37,7 +37,7 @@ export default StaticPropsDetail;
 export const getStaticPaths: GetStaticPaths = async () => {
   // Get the paths we want to pre-render based on users
   const paths = sampleDateData.map((data) => ({
-    params: { id: data.date.toString() },
+    params: { id: data.date.toString() }
   }));
 
   // We'll pre-render only these paths at build time.

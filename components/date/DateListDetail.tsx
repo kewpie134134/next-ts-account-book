@@ -1,6 +1,6 @@
-import * as React from "react";
+import * as React from 'react';
 
-import { SampleDate } from "../interfaces";
+import { SampleDate } from '../../interfaces';
 
 type ListDetailProps = {
   item: SampleDate;

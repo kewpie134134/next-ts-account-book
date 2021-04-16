@@ -1,6 +1,6 @@
-import * as React from "react";
-import DateListItem from "./DateListItem";
-import { SampleDate } from "../../interfaces";
+import * as React from 'react';
+import DateListItem from './DateListItem';
+import { SampleDate } from '../../interfaces';
 
 type Props = {
   items: SampleDate[];

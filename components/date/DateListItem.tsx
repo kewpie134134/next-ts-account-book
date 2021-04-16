@@ -1,7 +1,7 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
 
-import { SampleDate } from "../interfaces";
+import { SampleDate } from '../../interfaces';
 
 type Props = {
   data: SampleDate;
