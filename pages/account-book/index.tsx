@@ -4,7 +4,7 @@ import Link from "next/link";
 import { SampleDate } from "../../interfaces";
 import { sampleDateData } from "../../utils/sample-date-data";
 import Layout from "../../components/Layout";
-import DateList from "../../components/DateList";
+import DateList from "../../components/date/DateList";
 
 type Props = {
   items: SampleDate[];

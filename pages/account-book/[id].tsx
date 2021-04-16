@@ -2,7 +2,7 @@ import { GetStaticProps, GetStaticPaths } from "next";
 
 import { SampleDate } from "../../interfaces";
 import Layout from "../../components/Layout";
-import DateListDetail from "../../components/DateListDetail";
+import DateListDetail from "../../components/date/DateListDetail";
 import { sampleDateData } from "../../utils/sample-date-data";
 
 type Props = {

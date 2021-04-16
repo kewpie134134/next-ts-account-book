@@ -1,16 +1,16 @@
 import * as React from "react";
-import DateListItem from "./DateListItem";
-import { SampleDate } from "../interfaces";
+import ListItem from "./UserListItem";
+import { User } from "../../interfaces";
 
 type Props = {
-  items: SampleDate[];
+  items: User[];
 };
 
 const List = ({ items }: Props) => (
   <ul>
     {items.map((item) => (
-      <li key={item.date}>
-        <DateListItem data={item} />
+      <li key={item.id}>
+        <ListItem data={item} />
       </li>
     ))}
   </ul>
