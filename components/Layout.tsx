@@ -28,6 +28,10 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
           <a>Mother</a>
         </Link>{' '}
         |{' '}
+        <Link href="/father">
+          <a>Father</a>
+        </Link>{' '}
+        |{' '}
         <Link href="/account-book">
           <a>Account book</a>
         </Link>{' '}
