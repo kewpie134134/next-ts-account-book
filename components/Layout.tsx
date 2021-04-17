@@ -2,6 +2,8 @@ import React, { ReactNode } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 
+import { getThisMonth } from '../components/month';
+
 type Props = {
   children?: ReactNode;
   title?: string;
@@ -45,11 +47,5 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
     </footer>
   </div>
 );
-
-const getThisMonth = (): string => {
-  const today = new Date();
-  const fatherPath = `10${today.getMonth() + 1}`;
-  return fatherPath;
-};
 
 export default Layout;
