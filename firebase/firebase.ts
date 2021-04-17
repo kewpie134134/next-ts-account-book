@@ -2,7 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/firestore';
 
-firebase.initializeApp({
+const firebaseConfig = {
   apiKey: process.env.NEXT_APP_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_APP_FIREBASE_AUTH_DOMAIN,
   projectId: process.env.NEXT_APP_FIREBASE_PROJECT_ID,
@@ -10,9 +10,15 @@ firebase.initializeApp({
   messagingSenderId: process.env.NEXT_APP_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.NEXT_APP_FIREBASE_APP_ID,
   measurementId: process.env.NEXT_APP_FIREBASE_MEASUREMENT_ID
-});
+};
 
-const auth = firebase.auth();
+// Initialize Firebase
+// 複数回初期化処理が呼ばれるのを防ぐため。
+// ログイン機能実装後、削除予定（★）
+if (firebase.apps.length === 0) {
+  firebase.initializeApp(firebaseConfig);
+}
+
 const db = firebase.firestore();
 
-export { auth, db };
+export { db };
