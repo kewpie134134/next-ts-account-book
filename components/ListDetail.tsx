@@ -6,18 +6,19 @@ import { User } from '../interfaces';
 type ListDetailProps = {
   item: User;
   id: string | string[];
+  user: string;
 };
 
-const ListDetail = ({ item: user, id: path }: ListDetailProps) => {
+const ListDetail = ({ item, id: path, user }: ListDetailProps) => {
   return (
     <div>
-      <h1>Detail for {user.name}</h1>
-      <p>ID: {user.id}</p>
-      <Link href={`/father/${Number(path) - 1}`}>
+      <h1>Detail for {item.name}</h1>
+      <p>ID: {item.id}</p>
+      <Link href={`/${user}/${Number(path) - 1}`}>
         <a>先月</a>
       </Link>{' '}
       |{' '}
-      <Link href={`/father/${Number(path) + 1}`}>
+      <Link href={`/${user}/${Number(path) + 1}`}>
         <a>次月</a>
       </Link>
     </div>

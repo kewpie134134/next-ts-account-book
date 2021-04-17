@@ -30,7 +30,7 @@ const StaticPropsDetail = ({ item, errors }: Props) => {
         item ? item.name : 'User Detail'
       } | Next.js + TypeScript Example`}
     >
-      {item && <ListDetail item={item} id={id} />}
+      {item && <ListDetail item={item} id={id} user="father" />}
     </Layout>
   );
 };
