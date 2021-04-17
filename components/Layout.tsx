@@ -33,10 +33,6 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
         <Link href={`/father/${getThisMonth()}`}>
           <a>Father</a>
         </Link>{' '}
-        |{' '}
-        <Link href="/account-book">
-          <a>Account book</a>
-        </Link>{' '}
         | <a href="/api/users">Users API</a>
       </nav>
     </header>
