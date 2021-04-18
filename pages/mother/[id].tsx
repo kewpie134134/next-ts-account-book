@@ -10,12 +10,13 @@ import { db } from '../../utils/Firebase';
 type Props = {
   item?: User;
   errors?: string;
-  monthlyData?: any;
+  monthlyData?: object;
 };
 
 const StaticPropsDetail = ({ item, errors, monthlyData }: Props) => {
   const router = useRouter();
   const { id } = router.query;
+  console.log(typeof monthlyData);
   if (errors) {
     return (
       <Layout title="Error | Next.js + TypeScript Example">

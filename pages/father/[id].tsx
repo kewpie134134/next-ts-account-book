@@ -10,7 +10,7 @@ import { db } from '../../utils/Firebase';
 type Props = {
   item?: User;
   errors?: string;
-  monthlyData?: any;
+  monthlyData?: object;
 };
 
 const StaticPropsDetail = ({ item, errors, monthlyData }: Props) => {
