@@ -68,14 +68,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     // will receive `item` as a prop at build time
 
     const monthlyDataDoc = await db.collection('father-2021-04').get();
-    const monthlyData: Array<object> = await monthlyDataDoc.docs.map(
-      (doc: any) => {
-        const objectDoc = doc.data();
-        return {
-          ...objectDoc
-        };
-      }
-    );
+    const monthlyData: Array<object> = await monthlyDataDoc.docs.map((doc) => {
+      const objectDoc = doc.data();
+      return {
+        ...objectDoc
+      };
+    });
 
     return { props: { item, monthlyData } };
   } catch (err) {
