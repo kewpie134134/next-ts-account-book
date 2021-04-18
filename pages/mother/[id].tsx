@@ -1,17 +1,19 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
+import { useRouter } from 'next/router';
 
 import { User } from '../../interfaces';
 import { sampleUserData } from '../../utils/sample-data';
 import Layout from '../../components/Layout';
 import ListDetail from '../../components/ListDetail';
-import { useRouter } from 'next/router';
+import { db } from '../../utils/Firebase';
 
 type Props = {
   item?: User;
   errors?: string;
+  monthlyData?: any;
 };
 
-const StaticPropsDetail = ({ item, errors }: Props) => {
+const StaticPropsDetail = ({ item, errors, monthlyData }: Props) => {
   const router = useRouter();
   const { id } = router.query;
   if (errors) {
@@ -30,7 +32,14 @@ const StaticPropsDetail = ({ item, errors }: Props) => {
         item ? item.name : 'User Detail'
       } | Next.js + TypeScript Example`}
     >
-      {item && <ListDetail item={item} id={id} user="mother" />}
+      {item && (
+        <ListDetail
+          item={item}
+          monthlyData={monthlyData}
+          id={id}
+          user="mother"
+        />
+      )}
     </Layout>
   );
 };
@@ -57,7 +66,16 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     const item = sampleUserData.find((data) => data.id === Number(id));
     // By returning { props: item }, the StaticPropsDetail component
     // will receive `item` as a prop at build time
-    return { props: { item } };
+
+    const monthlyDataDoc = await db.collection('mother-2021-04').get();
+    const monthlyData: any[] = await monthlyDataDoc.docs.map((doc: any) => {
+      const objectDoc = doc.data();
+      return {
+        ...objectDoc
+      };
+    });
+
+    return { props: { item, monthlyData } };
   } catch (err) {
     return { props: { errors: err.message } };
   }
