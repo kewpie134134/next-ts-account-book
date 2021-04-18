@@ -13,11 +13,7 @@ const firebaseConfig = {
 };
 // firebase.appsをチェックし、ロードされているかどうかを確認。
 // なければinitializeAppを実行
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-} else {
-  firebase.app();
-}
+!firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
 
 export const db = firebase.firestore();
 export const auth = firebase.auth();
