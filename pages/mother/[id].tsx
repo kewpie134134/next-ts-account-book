@@ -16,7 +16,6 @@ type Props = {
 const StaticPropsDetail = ({ item, errors, monthlyData }: Props) => {
   const router = useRouter();
   const { id } = router.query;
-  console.log(typeof monthlyData);
   if (errors) {
     return (
       <Layout title="Error | Next.js + TypeScript Example">
