@@ -7,7 +7,7 @@ type ListDetailProps = {
   item: User;
   id: string | string[];
   user: string;
-  monthlyData: any;
+  monthlyData?: object;
 };
 
 const ListDetail = ({ item, id: path, user, monthlyData }: ListDetailProps) => {
