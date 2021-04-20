@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 
-import { getThisMonth } from '../components/month';
+import { getThisMonth } from './Month';
 
 type Props = {
   children?: ReactNode;
