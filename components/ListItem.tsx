@@ -1,16 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
 
-import { User } from '../interfaces';
+import { Date } from '../interfaces';
 
 type Props = {
-  data: User;
+  data: Date;
 };
 
 const ListItem = ({ data }: Props) => (
-  <Link href="/mother/[id]" as={`/mother/${data.id}`}>
+  <Link href="/mother/[id]" as={`/mother/${data.date}`}>
     <a>
-      {data.id}: {data.name}
+      {data.date}: {data.name}
     </a>
   </Link>
 );
