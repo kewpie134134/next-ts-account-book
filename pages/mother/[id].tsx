@@ -6,6 +6,7 @@ import { sampleUserData } from '../../utils/sample-data';
 import Layout from '../../components/Layout';
 import ListDetail from '../../components/ListDetail';
 import { db } from '../../utils/Firebase';
+import { getThisMonth } from '../../components/Month';
 
 type Props = {
   item?: User;
@@ -67,7 +68,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     // By returning { props: item }, the StaticPropsDetail component
     // will receive `item` as a prop at build time
 
-    const monthlyDataDoc = await db.collection('mother-2021-04').get();
+    const monthlyDataDoc = await db
+      .collection('mother-2021-' + getThisMonth)
+      .get();
     const monthlyData: Array<MonthlyData> = await monthlyDataDoc.docs.map(
       (doc) => {
         const monthlyDataDoc = doc.data();
