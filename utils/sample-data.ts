@@ -1,9 +1,9 @@
-import { User } from '../interfaces';
+import { Date } from '../interfaces';
 
 /** Dummy user data. */
-export const sampleUserData: User[] = [
-  { id: 1, name: 'Alice' },
-  { id: 2, name: 'Bob' },
-  { id: 3, name: 'Caroline' },
-  { id: 4, name: 'Dave' }
+export const sampleDateData: Date[] = [
+  { date: '2021-01', name: 'Alice' },
+  { date: '2021-02', name: 'Bob' },
+  { date: '2021-03', name: 'Caroline' },
+  { date: '2021-04', name: 'Dave' }
 ];

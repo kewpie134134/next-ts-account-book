@@ -1,15 +1,15 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
 
-import { User, MonthlyData } from '../../interfaces';
-import { sampleUserData } from '../../utils/sample-data';
+import { Date, MonthlyData } from '../../interfaces';
+import { sampleDateData } from '../../utils/sample-data';
 import Layout from '../../components/Layout';
 import ListDetail from '../../components/ListDetail';
 import { db } from '../../utils/Firebase';
-import { getThisMonth } from '../../components/Month';
+import { getThisYearAndMonth } from '../../components/Today';
 
 type Props = {
-  item?: User;
+  item?: Date;
   errors?: string;
   monthlyData?: MonthlyData;
 };
@@ -49,8 +49,8 @@ export default StaticPropsDetail;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   // Get the paths we want to pre-render based on users
-  const paths = sampleUserData.map((user) => ({
-    params: { id: user.id.toString() }
+  const paths = sampleDateData.map((data) => ({
+    params: { id: data.date }
   }));
 
   // We'll pre-render only these paths at build time.
@@ -63,13 +63,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
 // direct database queries.
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
-    const id = params?.id;
-    const item = sampleUserData.find((data) => data.id === Number(id));
+    const date = params?.id;
+    const item = sampleDateData.find((data) => data.date === date);
     // By returning { props: item }, the StaticPropsDetail component
     // will receive `item` as a prop at build time
 
     const monthlyDataDoc = await db
-      .collection('mother-2021-' + getThisMonth)
+      .collection(`mother-${getThisYearAndMonth()}`)
       .get();
     const monthlyData: Array<MonthlyData> = await monthlyDataDoc.docs.map(
       (doc) => {

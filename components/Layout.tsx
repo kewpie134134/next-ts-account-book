@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import Link from 'next/link';
 import Head from 'next/head';
 
-import { getThisMonth } from './Month';
+import { getThisYearAndMonth } from './Today';
 
 type Props = {
   children?: ReactNode;
@@ -26,11 +26,11 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
           <a>About</a>
         </Link>{' '}
         |{' '}
-        <Link href={`/mother/${getThisMonth()}`}>
+        <Link href={`/mother/${getThisYearAndMonth()}`}>
           <a>Mother</a>
         </Link>{' '}
         |{' '}
-        <Link href={`/father/${getThisMonth()}`}>
+        <Link href={`/father/${getThisYearAndMonth()}`}>
           <a>Father</a>
         </Link>{' '}
         | <a href="/api/users">Users API</a>

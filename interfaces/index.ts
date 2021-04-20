@@ -4,8 +4,8 @@
 //
 // import { User } from 'path/to/interfaces';
 
-export type User = {
-  id: number;
+export type Date = {
+  date: string;
   name: string;
 };
 
