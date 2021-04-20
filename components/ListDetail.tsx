@@ -44,8 +44,8 @@ const ListDetail = ({ item, id: path, user, monthlyData }: ListDetailProps) => {
         <a>次月</a>
       </Link>
       <div>
-        {monthlyData?.map((data: any) => {
-          return <div>{data.item}</div>;
+        {monthlyData?.map((data: any, index: number) => {
+          return <div key={index}>{data.item}</div>;
         })}
       </div>
     </div>
