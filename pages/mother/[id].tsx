@@ -76,7 +76,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
         };
       }
     );
-    console.log(monthlyData);
 
     return { props: { item, monthlyData } };
   } catch (err) {
