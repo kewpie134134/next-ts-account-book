@@ -1,7 +1,7 @@
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { useRouter } from 'next/router';
 
-import { User } from '../../interfaces';
+import { MonthlyData, User } from '../../interfaces';
 import { sampleUserData } from '../../utils/sample-data';
 import Layout from '../../components/Layout';
 import ListDetail from '../../components/ListDetail';
@@ -10,7 +10,7 @@ import { db } from '../../utils/Firebase';
 type Props = {
   item?: User;
   errors?: string;
-  monthlyData?: object;
+  monthlyData?: MonthlyData;
 };
 
 const StaticPropsDetail = ({ item, errors, monthlyData }: Props) => {
@@ -68,12 +68,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     // will receive `item` as a prop at build time
 
     const monthlyDataDoc = await db.collection('father-2021-04').get();
-    const monthlyData: Array<object> = await monthlyDataDoc.docs.map((doc) => {
-      const objectDoc = doc.data();
-      return {
-        ...objectDoc
-      };
-    });
+    const monthlyData: Array<MonthlyData> = await monthlyDataDoc.docs.map(
+      (doc) => {
+        const monthlyDataDoc = doc.data();
+        return {
+          ...monthlyDataDoc
+        };
+      }
+    );
 
     return { props: { item, monthlyData } };
   } catch (err) {

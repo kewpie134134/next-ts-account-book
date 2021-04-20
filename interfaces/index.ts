@@ -12,3 +12,7 @@ export type User = {
 export type SampleDate = {
   date: number;
 };
+
+export type MonthlyData = {
+  [props: string]: string;
+};

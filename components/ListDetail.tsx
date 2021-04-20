@@ -1,13 +1,13 @@
 import * as React from 'react';
 import Link from 'next/link';
 
-import { User } from '../interfaces';
+import { User, MonthlyData } from '../interfaces';
 
 type ListDetailProps = {
   item: User;
   id: string | string[];
   user: string;
-  monthlyData?: object;
+  monthlyData?: MonthlyData;
 };
 
 const ListDetail = ({ item, id: path, user, monthlyData }: ListDetailProps) => {
