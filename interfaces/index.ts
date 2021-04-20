@@ -14,5 +14,5 @@ export type SampleDate = {
 };
 
 export type MonthlyData = {
-  [props: string]: string;
+  [props: string]: any;
 };

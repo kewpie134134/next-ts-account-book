@@ -23,6 +23,11 @@ const ListDetail = ({ item, id: path, user, monthlyData }: ListDetailProps) => {
       <Link href={`/${user}/${Number(path) + 1}`}>
         <a>次月</a>
       </Link>
+      <div>
+        {monthlyData?.map((data: any) => {
+          return <div>{data.item}</div>;
+        })}
+      </div>
     </div>
   );
 };
