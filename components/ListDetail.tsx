@@ -5,7 +5,7 @@ import { Date, MonthlyData } from '../interfaces';
 
 type ListDetailProps = {
   item: Date;
-  id: string;
+  id: string | string[];
   user: string;
   monthlyData?: MonthlyData;
 };
@@ -20,9 +20,14 @@ const ListDetail = ({ item, id: path, user, monthlyData }: ListDetailProps) => {
     return result;
   };
 
-  const pathToAnotherMonth = (path: string, index: number): string => {
-    // path => '2021-04'
-    const thisYearMonthForNumber = Number(path.slice(0, 4) + path.slice(5));
+  const pathToAnotherMonth = (
+    path: string | string[],
+    index: number
+  ): string => {
+    let thisYearMonthForNumber: number = NaN;
+    if (typeof path === 'string')
+      // path => '2021-04'
+      thisYearMonthForNumber = Number(path.slice(0, 4) + path.slice(5));
     const anotherMonthForString = (thisYearMonthForNumber + index).toString();
     return stringInsert(anotherMonthForString, 4, '-');
   };
