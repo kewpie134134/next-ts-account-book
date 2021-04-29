@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import IndexPage from '../index';
 
-test('AppTitle', () => {
+test('IndexPage', () => {
   const component = renderer.create(<IndexPage />);
   const tree = component.toJSON();
 
