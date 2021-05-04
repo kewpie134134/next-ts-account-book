@@ -11,6 +11,7 @@ type ListDetailProps = {
 };
 
 const ListDetail = ({ item, id: path, user, monthlyData }: ListDetailProps) => {
+  // 202104 などを 2021-04 に修正するための関数
   const stringInsert = (
     string: string,
     index: number,
@@ -20,6 +21,7 @@ const ListDetail = ({ item, id: path, user, monthlyData }: ListDetailProps) => {
     return result;
   };
 
+  // 202104 から index で -1 や +1 を数値計算して、文字列の '2021-03' などにする
   const pathToAnotherMonth = (
     path: string | string[],
     index: number
