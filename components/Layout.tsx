@@ -26,12 +26,12 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
           <a>About</a>
         </Link>{' '}
         |{' '}
-        <Link href={`/mother/${getThisYearAndMonth()}`}>
-          <a>Mother</a>
-        </Link>{' '}
-        |{' '}
         <Link href={`/father/${getThisYearAndMonth()}`}>
           <a>Father</a>
+        </Link>{' '}
+        |{' '}
+        <Link href={`/mother/${getThisYearAndMonth()}`}>
+          <a>Mother</a>
         </Link>{' '}
         | <a href="/api/users">Users API</a>
       </nav>
